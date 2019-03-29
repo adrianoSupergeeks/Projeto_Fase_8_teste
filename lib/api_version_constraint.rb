@@ -5,7 +5,7 @@ class ApiVersionConstraint
     end
     
     def matches?(req)
-        default || req.headers['Accept'].include?("application/vnd.projetofase8.v#{version}") 
+        @default || req.headers['Accept'].include?("application/vnd.projetofase8.v#{@version}") 
     end
 end
 
