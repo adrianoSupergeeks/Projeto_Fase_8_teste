@@ -7,7 +7,8 @@ Rails.application.routes.draw do
         namespace :v1, path: "/", constraints: ApiVersionConstraint.new(version: 1, default: true) do
             resources :users
             resources :sessions
-            ressouces :gains
+            resources :gains
+            resources :expenses
         end
     end
 end
