@@ -14,9 +14,9 @@ class Api::V1::GainsController < ApplicationController
     def create
         gain = current_user.gains.build(gain_params)
         if gain.save
-            render json: gain, status 201
+            render json: gain, status: 201
         else
-            render json: {errors: gain.errors}, status 422
+            render json: {errors: gain.errors}, status: 422
         end
     end
 
@@ -25,7 +25,7 @@ class Api::V1::GainsController < ApplicationController
         if gain.update_attributes(gain_params)
             render json: gain, status: 200
         else
-            render json: {errors: gain.errors}, status 422
+            render json: {errors: gain.errors}, status: 422
         end
     end
     
@@ -38,6 +38,6 @@ class Api::V1::GainsController < ApplicationController
     private
     
     def gain_params
-         params.require(:gain).permit(description, :value, :date)
+         params.require(:gain).permit(:description, :value, :date)
     end
 end
